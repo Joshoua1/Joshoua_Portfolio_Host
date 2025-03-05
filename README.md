@@ -117,73 +117,6 @@ npm run build
 - Use React.lazy for code splitting
 - Implement proper error boundaries
 
-## 🚀 Deployment Strategies
-
-### Frontend Hosting
-1. **Netlify**
-```bash
-# Install Netlify CLI
-npm install netlify-cli -g
-
-# Deploy
-netlify deploy
-```
-
-2. **Vercel**
-```bash
-# Install Vercel CLI
-npm install -g vercel
-
-# Deploy
-vercel
-```
-
-### Backend Deployment
-- Heroku
-- DigitalOcean
-- AWS Elastic Beanstalk
-
-## 🤝 Contribution Guide
-
-### How to Contribute
-1. Create a feature branch
-```bash
-git checkout -b feature/your-awesome-feature
-```
-
-2. Commit changes
-```bash
-git commit -m 'Add detailed description of changes'
-```
-
-3. Push to branch
-```bash
-git push origin feature/your-awesome-feature
-```
-
-4. Open a Pull Request
-
-## 📚 Learning Resources
-- [React Official Documentation](https://reactjs.org/docs/getting-started.html)
-- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [Frontend Masters](https://frontendmasters.com/)
-
-## 📞 Connect & Support
-- **Email**: simonjoshoua23@gmail.com
-- **LinkedIn**: [Joshoua Simon](https://www.linkedin.com/in/joshoua-simon-319718251/)
-- **GitHub**: [@Joshoua1](https://github.com/Joshoua1)
-
-## 📄 License
-MIT License - Learn, Build, Share!
-
----
-
-### 💡 Pro Tips
-- Comment your code
-- Follow React best practices
-- Keep learning and iterating
-- Build projects that solve real problems
-
 ## 🌐 Backend Email Service (server.js)
 
 ### 📧 Email Sending Functionality
@@ -294,3 +227,71 @@ const transporter = nodemailer.createTransport({
 - Add more robust error handling
 - Use a production-grade logging system
 - Consider serverless functions (AWS Lambda, Vercel)
+
+## 🚀 Deployment Strategies
+
+### Frontend Hosting
+1. **Netlify**
+```bash
+# Install Netlify CLI
+npm install netlify-cli -g
+
+# Deploy
+netlify deploy
+```
+
+2. **Vercel**
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Deploy
+vercel
+```
+
+### Backend Deployment
+- Heroku
+- DigitalOcean
+- AWS Elastic Beanstalk
+
+## 🤝 Contribution Guide
+
+### How to Contribute
+1. Create a feature branch
+```bash
+git checkout -b feature/your-awesome-feature
+```
+
+2. Commit changes
+```bash
+git commit -m 'Add detailed description of changes'
+```
+
+3. Push to branch
+```bash
+git push origin feature/your-awesome-feature
+```
+
+4. Open a Pull Request
+
+## 📚 Learning Resources
+- [React Official Documentation](https://reactjs.org/docs/getting-started.html)
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Frontend Masters](https://frontendmasters.com/)
+
+## 📞 Connect & Support
+- **Email**: simonjoshoua23@gmail.com
+- **LinkedIn**: [Joshoua Simon](https://www.linkedin.com/in/joshoua-simon-319718251/)
+- **GitHub**: [@Joshoua1](https://github.com/Joshoua1)
+
+## 📄 License
+MIT License - Learn, Build, Share!
+
+---
+
+### 💡 Pro Tips
+- Comment your code
+- Follow React best practices
+- Keep learning and iterating
+- Build projects that solve real problems
+
