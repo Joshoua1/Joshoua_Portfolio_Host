@@ -5,7 +5,7 @@ This portfolio is more than just a showcase – it's a learning resource for dev
 
 ## 🌐 Live Preview
 - **Website**: [Your Portfolio URL]
-- **GitHub Repo**: [https://github.com/Joshoua1/joshoua_port](https://github.com/Joshoua1/joshoua_port)
+- **GitHub Repo**: {https://github.com/Joshoua1/Portfolio}
 
 ## 🔍 Learning Objectives
 
@@ -52,11 +52,11 @@ Forking allows you to:
 
 ```bash
 # Step-by-Step GitHub Workflow
-# 1. Go to https://github.com/Joshoua1/joshoua_port
+# 1. Go to https://github.com/Joshoua1/Portfolio
 # 2. Click "Fork" button at top right
 # 3. Clone YOUR forked repository
 
-git clone https://github.com/YOUR_USERNAME/joshoua_port.git
+git clone https://github.com/Joshoua1/Portfolio
 cd joshoua_port
 ```
 
