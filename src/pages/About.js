@@ -403,15 +403,15 @@ const About = () => {
             variants={containerVariants}
           >
             <motion.p variants={itemVariants}>
-              Hello there! I'm a young and enthusiastic developer with a passion for crafting digital experiences.
+              Hello there! I'm an experienced full stack developer and professional data analyst with a passion for crafting comprehensive digital solutions.
             </motion.p>
             
             <motion.p variants={itemVariants}>
-              Armed with a diverse skill set, I navigate the realms of web development effortlessly, wielding the power of HTML, CSS, and JavaScript to shape the visual and interactive facets of the online world.
+              Armed with extensive expertise across the entire development stack, I navigate both frontend and backend realms with confidence, while also extracting powerful insights through advanced data analysis techniques.
             </motion.p>
             
             <motion.p variants={itemVariants}>
-              Join me on this exciting journey as I leverage technology to turn ideas into reality and create seamless, user-friendly digital landscapes.
+              Join me on this professional journey as I combine robust application development with data-driven decision making to create seamless, impactful solutions that transform business challenges into opportunities.
             </motion.p>
             
             <motion.div className="skills-container" variants={containerVariants}>
