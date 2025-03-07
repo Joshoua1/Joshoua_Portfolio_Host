@@ -2,7 +2,6 @@
   "name": "joshoua_port",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@testing-library/dom": "^10.4.0",
@@ -28,6 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "next dev",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
