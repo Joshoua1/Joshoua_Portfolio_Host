@@ -34,8 +34,9 @@ const projects = [
     title: 'Agro Pedia',
     description: 'An agricultural information platform providing resources and knowledge for farmers.',
     image: agropediaImage,
-    link: 'agro_pedia.html',
-    category: 'web'
+    link: '', // Removed the redirect link
+    category: 'web',
+    noRedirect: true // Added a flag to identify this project as non-redirecting
   },
   {
     id: 4,
@@ -86,6 +87,17 @@ const Projects = () => {
   const filteredProjects = filter === 'all' 
     ? projects 
     : projects.filter(project => project.category === filter);
+
+  // Function to handle click on project
+  const handleProjectClick = (e, project) => {
+    // If the project has the noRedirect flag, prevent default behavior
+    if (project.noRedirect) {
+      e.preventDefault();
+      // You could add alternative behavior here if needed
+      // For example, show a modal with more details:
+      // setSelectedProject(project);
+    }
+  };
 
   return (
     <motion.section 
@@ -163,7 +175,8 @@ const Projects = () => {
               onHoverStart={() => setHoveredProject(project.id)}
               onHoverEnd={() => setHoveredProject(null)}
             >
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
+              {project.noRedirect ? (
+                // For the Agro Pedia project, use a div instead of an anchor
                 <div className="project-image-container">
                   <img src={project.image} alt={project.title} />
                   <motion.div 
@@ -179,11 +192,39 @@ const Projects = () => {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      View Project
+                      View Details
                     </motion.button>
                   </motion.div>
                 </div>
-              </a>
+              ) : (
+                // For all other projects, use an anchor as before
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  onClick={(e) => handleProjectClick(e, project)}
+                >
+                  <div className="project-image-container">
+                    <img src={project.image} alt={project.title} />
+                    <motion.div 
+                      className="project-info"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: hoveredProject === project.id ? 1 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <h3>{project.title}</h3>
+                      <p>{project.description}</p>
+                      <motion.button 
+                        className="view-project"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        View Project
+                      </motion.button>
+                    </motion.div>
+                  </div>
+                </a>
+              )}
             </motion.div>
           ))}
         </motion.div>
