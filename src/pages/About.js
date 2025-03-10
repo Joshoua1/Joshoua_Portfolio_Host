@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-// Import skill icons
+// Import skill icons remain the same
 import pythonIcon from '../Assets/Images/python-icon.png';
 import javaIcon from '../Assets/Images/java-icon.png';
 import htmlIcon from '../Assets/Images/html-icon.png';
@@ -28,8 +28,9 @@ import sklearn from '../Assets/Images/Scikit_Learn.png';
 import Fabric from '../Assets/Images/Microsoft fabric.png';
 // Import profile image
 import profileImage from '../Assets/Images/about.jpg';
+// ... other imports remain the same
 
-// Skill categories
+// Skill categories remain the same
 const skillCategories = [
   {
     name: "Programming Languages",
@@ -81,7 +82,7 @@ const skillCategories = [
   }
 ];
 
-// CSS styles to be included in your main CSS file
+// Updated CSS styles with improved mobile styling
 const styles = `
 /* About section styles */
 #about {
@@ -103,6 +104,7 @@ const styles = `
   text-align: center;
   margin-bottom: 60px;
   color: #333;
+  z-index: 10;
 }
 
 .about-heading::after {
@@ -121,13 +123,6 @@ const styles = `
   display: flex;
   flex-direction: column;
   gap: 40px;
-}
-
-@media (min-width: 992px) {
-  .about-content {
-    flex-direction: row;
-    align-items: center;
-  }
 }
 
 .text-section {
@@ -156,6 +151,15 @@ const styles = `
   margin-bottom: 30px;
 }
 
+.category-heading {
+  color: #e74c3c;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid rgba(231, 76, 60, 0.2);
+}
+
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -168,9 +172,9 @@ const styles = `
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100px;
-  height: 100px;
-  padding: 15px;
+  width: 80px;
+  height: 80px;
+  padding: 10px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -185,32 +189,32 @@ const styles = `
 }
 
 .skill-item img {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   object-fit: contain;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   z-index: 2;
 }
 
 .skill-name {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 500;
   text-align: center;
   z-index: 2;
 }
 
 .about-image {
-  flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
+  margin-top: 20px;
 }
 
 .profile-image-container {
   position: relative;
-  width: 320px;
-  height: 320px;
-  top: -220px; /* Changed from -70px to -120px to move it up further */
+  width: 300px;
+  height: 300px;
 }
 
 .profile-image {
@@ -253,9 +257,158 @@ const styles = `
 }
 
 .tech-badge img {
-  width: 35px;
-  height: 35px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
+}
+
+/* Responsive styles - improved for mobile */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 900px;
+  }
+  
+  .skill-item {
+    width: 75px;
+    height: 75px;
+  }
+  
+  .profile-image-container {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+  }
+  
+  .about-image {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  .about-content {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  #about {
+    padding: 60px 0;
+  }
+  
+  .about-heading {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+  
+  .text-section p {
+    font-size: 1rem;
+  }
+  
+  .skills-grid {
+    gap: 12px;
+    justify-content: flex-start;
+  }
+  
+  .skill-item {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .profile-image-container {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* New improved mobile styles */
+@media (max-width: 576px) {
+  #about {
+    padding: 40px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .about-heading {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .text-section p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+  }
+  
+  .category-title {
+    font-size: 1.2rem;
+    margin: 20px 0 10px;
+  }
+  
+  .category-heading {
+    font-size: 1.1rem;
+  }
+  
+  /* Optimize skill grid for small screens */
+  .skills-grid {
+    gap: 8px;
+    justify-content: flex-start;
+  }
+  
+  .skill-item {
+    width: calc(25% - 8px);
+    min-width: 65px;
+    height: 65px;
+    padding: 6px;
+  }
+  
+  .skill-name {
+    font-size: 0.65rem;
+  }
+  
+  .profile-image-container {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .tech-badge {
+    width: 40px;
+    height: 40px;
+    right: 20px;
+  }
+  
+  .tech-badge img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 400px) {
+  .skills-grid {
+    gap: 6px;
+  }
+  
+  .skill-item {
+    width: calc(33.33% - 6px);
+    min-width: 60px;
+    height: 60px;
+  }
+  
+  .skill-item img {
+    height: 22px;
+    width: 22px;
+  }
+  
+  .profile-image-container {
+    width: 180px;
+    height: 180px;
+  }
 }
 `;
 
@@ -263,6 +416,11 @@ const About = () => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.1,
+    triggerOnce: true
+  });
+
+  const [headingRef, headingInView] = useInView({
+    threshold: 0.05,
     triggerOnce: true
   });
 
@@ -289,54 +447,54 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
+        staggerChildren: 0.05,
+        delayChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 10, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.4, ease: "easeOut" }
     }
   };
 
   const headingVariants = {
-    hidden: { y: -30, opacity: 0 },
+    hidden: { opacity: 0, y: -10 },
     visible: { 
-      y: 0, 
       opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" }
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" }
     }
   };
 
   const imageContainerVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
+    hidden: { scale: 0.9, opacity: 0 },
     visible: {
       scale: 1,
       opacity: 1,
-      transition: { duration: 0.8, type: "spring", stiffness: 100 }
+      transition: { duration: 0.6, type: "spring", stiffness: 100 }
     }
   };
 
   const skillItemVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
+    hidden: { scale: 0.9, opacity: 0 },
     visible: i => ({
       scale: 1,
       opacity: 1,
       transition: { 
-        delay: i * 0.05,
-        duration: 0.5,
+        delay: i * 0.03,
+        duration: 0.4,
         type: "spring",
         stiffness: 200,
         damping: 10
       }
     }),
     hover: { 
-      scale: 1.1, 
+      scale: 1.05, 
       y: -5,
       boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
       transition: { duration: 0.3 }
@@ -344,13 +502,11 @@ const About = () => {
   };
 
   const backdropVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 0.7,
       scale: 1,
-      transition: { 
-        duration: 1,
-      }
+      transition: { duration: 0.8 }
     },
     animate: {
       rotate: 360,
@@ -368,7 +524,7 @@ const About = () => {
       scale: 1,
       opacity: 1,
       transition: { 
-        delay: 1.2,
+        delay: 0.8,
         type: "spring",
         stiffness: 300,
         damping: 15
@@ -378,26 +534,29 @@ const About = () => {
       scale: 1.2, 
       rotate: [0, -10, 10, -10, 0],
       transition: { duration: 0.7 }
-    }
+    },
   };
 
   return (
-    <motion.section 
-      id="about"
-      ref={ref}
-      initial="hidden"
-      animate={controls}
-      variants={containerVariants}
-    >
+    <section id="about">
       <div className="container">
         <motion.h2 
           className="about-heading"
+          ref={headingRef}
+          initial="hidden"
+          animate={headingInView ? "visible" : "hidden"}
           variants={headingVariants}
         >
           About Me
         </motion.h2>
   
-        <div className="about-content">
+        <motion.div 
+          className="about-content"
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={containerVariants}
+        >
           <motion.div 
             className="text-section"
             variants={containerVariants}
@@ -427,7 +586,7 @@ const About = () => {
                 >
                   <motion.h4 
                     variants={itemVariants}
-                    style={{ color: '#e74c3c', fontSize: '1.2rem', fontWeight: 600, marginBottom: '10px' }}
+                    className="category-heading"
                   >
                     {category.name}
                   </motion.h4>
@@ -495,9 +654,9 @@ const About = () => {
               </motion.div>
             </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

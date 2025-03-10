@@ -13,6 +13,7 @@ body {
   color: #333;
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
 }
 
 .container {
@@ -23,7 +24,7 @@ body {
 }
 
 section {
-  padding: 80px 0;
+  padding: 60px 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -50,6 +51,7 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+  display: block; /* Prevents layout shifts */
 }
 
 button {
@@ -83,31 +85,40 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* Allows items to wrap on small screens */
 }
 
 .logo {
-  font-size: 1.8em;
+  font-size: calc(1.3rem + 0.5vw); /* Fluid typography */
   color: #F39C12;
   font-weight: bold;
   letter-spacing: 1px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+nav {
+  width: auto; /* Allows nav to take necessary width */
+}
+
 nav ul {
   display: flex;
   align-items: center;
+  flex-wrap: wrap; /* Allows menu items to wrap */
+  justify-content: center;
+  gap: 15px; /* More consistent spacing */
 }
 
 nav li {
-  margin-left: 30px;
+  margin: 5px;
 }
 
 nav a {
   color: #FFFFFF;
   font-weight: 600;
-  font-size: 1.1em;
+  font-size: 1rem;
   position: relative;
   padding: 5px 0;
+  white-space: nowrap; /* Prevents text from breaking */
 }
 
 nav a:after {
@@ -130,6 +141,14 @@ nav a.active {
   color: #F39C12;
 }
 
+/* Mobile menu - you may want to add JavaScript functionality for this */
+.mobile-menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+}
+
 /* Home section styles */
 #home {
   background: linear-gradient(135deg, #f2f2f2 0%, #e6e6e6 100%);
@@ -138,23 +157,24 @@ nav a.active {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 80px;
+  padding: 100px 20px 60px; /* Adjusted for fixed header */
 }
 
 .intro {
   max-width: 800px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .intro h1 {
-  font-size: 3.5em;
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
   margin-bottom: 20px;
   color: #222;
   line-height: 1.2;
 }
 
 .intro p {
-  font-size: 1.4em;
+  font-size: clamp(1rem, 2vw, 1.4rem); /* Responsive font size */
   color: #34495E;
   margin-bottom: 40px;
 }
@@ -163,14 +183,18 @@ nav a.active {
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap; /* Allows buttons to wrap */
 }
 
 .primary-btn, .secondary-btn {
   padding: 12px 30px;
-  font-size: 1.1em;
+  font-size: 1rem;
   font-weight: 600;
   border-radius: 30px;
   transition: all 0.3s ease;
+  margin: 5px; /* Space when buttons wrap */
+  width: auto; /* Auto width instead of fixed */
+  min-width: 150px; /* Minimum width for buttons */
 }
 
 .primary-btn {
@@ -201,6 +225,7 @@ nav a.active {
   background-color: white;
   position: relative;
   overflow: hidden;
+  padding: 80px 20px; /* Consistent padding */
 }
 
 #about::before {
@@ -218,7 +243,7 @@ nav a.active {
 
 .about-heading {
   text-align: center;
-  font-size: 2.5em;
+  font-size: clamp(1.8rem, 3vw, 2.5rem); /* Responsive font size */
   margin-bottom: 50px;
   position: relative;
   z-index: 1;
@@ -227,19 +252,21 @@ nav a.active {
 .about-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 30px;
   align-items: center;
   position: relative;
   z-index: 1;
+  justify-content: center; /* Better centering */
 }
 
 .text-section {
   flex: 1;
-  min-width: 300px;
+  min-width: 280px; /* Smaller minimum width */
+  max-width: 600px; /* Maximum width for readability */
 }
 
 .text-section p {
-  font-size: 1.1em;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem); /* Responsive font size */
   margin-bottom: 15px;
   color: #34495E;
 }
@@ -247,7 +274,7 @@ nav a.active {
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
   margin-top: 30px;
   justify-content: flex-start;
 }
@@ -256,14 +283,14 @@ nav a.active {
   position: relative;
   background-color: white;
   border-radius: 12px;
-  padding: 15px;
+  padding: 10px; /* Smaller padding on mobile */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
 
 .skill img {
-  width: 50px;
-  height: 50px;
+  width: clamp(30px, 5vw, 50px); /* Responsive size */
+  height: clamp(30px, 5vw, 50px); /* Responsive size */
   object-fit: contain;
 }
 
@@ -281,6 +308,7 @@ nav a.active {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
+  white-space: nowrap; /* Prevents tooltip text wrapping */
 }
 
 .skill::after {
@@ -305,14 +333,15 @@ nav a.active {
 
 .about-image {
   flex: 1;
-  min-width: 300px;
+  min-width: 280px; /* Smaller minimum width */
+  max-width: 400px; /* Maximum width for the image container */
   display: flex;
   justify-content: center;
 }
 
 .profile-image {
-  width: 350px;
-  height: 350px;
+  width: clamp(200px, 40vw, 350px); /* Responsive size */
+  height: clamp(200px, 40vw, 350px); /* Responsive size */
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -323,11 +352,12 @@ nav a.active {
 #projects {
   background-color: #f8f9fa;
   position: relative;
+  padding: 80px 20px; /* Consistent padding */
 }
 
 #projects h2 {
   text-align: center;
-  font-size: 2.5em;
+  font-size: clamp(1.8rem, 3vw, 2.5rem); /* Responsive font size */
   margin-bottom: 30px;
 }
 
@@ -335,19 +365,20 @@ nav a.active {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
   margin-bottom: 40px;
 }
 
 .filter-buttons button {
-  padding: 10px 20px;
+  padding: 8px 15px; /* Smaller padding on mobile */
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 30px;
-  font-size: 0.95em;
+  font-size: 0.9rem;
   font-weight: 500;
   color: #34495E;
   transition: all 0.3s ease;
+  margin: 5px; /* Space when buttons wrap */
 }
 
 .filter-buttons button:hover,
@@ -360,9 +391,10 @@ nav a.active {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Smaller minimum on mobile */
+  gap: 20px; /* Smaller gap on mobile */
   margin-top: 20px;
+  width: 100%;
 }
 
 .project {
@@ -371,7 +403,8 @@ nav a.active {
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  height: 350px;
+  height: clamp(250px, 40vw, 350px); /* Responsive height */
+  width: 100%;
 }
 
 .project-image-container {
@@ -396,32 +429,33 @@ nav a.active {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 20px;
+  padding: 15px; /* Smaller padding on mobile */
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   color: white;
   transition: all 0.3s ease;
 }
 
 .project-info h3 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
+  font-size: clamp(1.1rem, 2vw, 1.5rem); /* Responsive font size */
+  margin-bottom: 8px;
   color: white;
 }
 
 .project-info p {
-  font-size: 1em;
+  font-size: clamp(0.8rem, 1.2vw, 1rem); /* Responsive font size */
   margin-bottom: 15px;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .view-project {
-  padding: 8px 20px;
+  padding: 6px 15px; /* Smaller padding on mobile */
   background-color: #F39C12;
   color: #2C3E50;
   border-radius: 20px;
   font-weight: 600;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   transition: all 0.3s ease;
+  display: inline-block;
 }
 
 .view-project:hover {
@@ -433,27 +467,30 @@ nav a.active {
 #contact {
   background-color: white;
   position: relative;
+  padding: 80px 20px; /* Consistent padding */
 }
 
 #contact h2 {
   text-align: center;
-  font-size: 2.5em;
+  font-size: clamp(1.8rem, 3vw, 2.5rem); /* Responsive font size */
   margin-bottom: 50px;
 }
 
 .contact-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 30px;
+  justify-content: space-between;
 }
 
 .contact-info, .contact-form {
   flex: 1;
-  min-width: 300px;
+  min-width: 280px; /* Smaller minimum width */
+  max-width: 600px; /* Maximum width for readability */
 }
 
 .contact-info p {
-  font-size: 1.1em;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem); /* Responsive font size */
   margin-bottom: 25px;
   color: #34495E;
 }
@@ -461,8 +498,8 @@ nav a.active {
 .contact-detail {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
-  padding: 15px;
+  margin-bottom: 15px;
+  padding: 12px; /* Smaller padding on mobile */
   background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -470,12 +507,14 @@ nav a.active {
 
 .contact-detail i {
   margin-right: 15px;
-  font-size: 1.2em;
+  font-size: 1.1rem;
   color: #1A4B84;
+  flex-shrink: 0; /* Prevents icon from shrinking */
 }
 
 .contact-detail p {
   margin-bottom: 0;
+  word-break: break-word; /* Helps with email addresses */
 }
 
 .contact-detail a {
@@ -485,16 +524,17 @@ nav a.active {
 
 .social-media {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   margin: 30px 0;
+  flex-wrap: wrap; /* Allows icons to wrap */
 }
 
 .social-media a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 45px; /* Slightly smaller on mobile */
+  height: 45px; /* Slightly smaller on mobile */
   background-color: #f8f9fa;
   border-radius: 50%;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -502,8 +542,8 @@ nav a.active {
 }
 
 .social-media img {
-  width: 25px;
-  height: 25px;
+  width: 22px; /* Slightly smaller on mobile */
+  height: 22px; /* Slightly smaller on mobile */
 }
 
 .resume-link {
@@ -512,14 +552,15 @@ nav a.active {
 }
 
 .download-button {
-  padding: 12px 25px;
+  padding: 10px 20px;
   background-color: #3498db;
   color: white;
   border-radius: 30px;
   font-weight: 600;
-  font-size: 1em;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+  display: inline-block;
 }
 
 .download-button:hover {
@@ -530,18 +571,20 @@ nav a.active {
 
 .contact-form form {
   background-color: #f8f9fa;
-  padding: 30px;
+  padding: 20px; /* Smaller padding on mobile */
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
 .form-group label {
   display: block;
-  font-size: 1em;
+  font-size: 0.95rem;
   font-weight: 600;
   margin-bottom: 8px;
   color: #444;
@@ -550,10 +593,10 @@ nav a.active {
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 12px 15px;
+  padding: 10px 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  font-size: 1em;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
 }
 
@@ -565,7 +608,8 @@ nav a.active {
 }
 
 .form-group textarea {
-  min-height: 150px;
+  min-height: 120px; /* Shorter on mobile */
+  max-height: 300px;
   resize: vertical;
 }
 
@@ -575,7 +619,7 @@ nav a.active {
   background-color: #1A4B84;
   color: white;
   border-radius: 8px;
-  font-size: 1.1em;
+  font-size: 1rem;
   font-weight: 600;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(214, 40, 40, 0.3);
@@ -610,6 +654,7 @@ footer {
   color: white;
   padding: 25px 0;
   text-align: center;
+  width: 100%;
 }
 
 footer .container {
@@ -621,31 +666,81 @@ footer .container {
 footer p {
   margin-bottom: 15px;
   color: #ccc;
+  font-size: 0.9rem;
 }
 
 .footer-links {
   display: flex;
-  gap: 20px;
+  gap: 15px;
+  flex-wrap: wrap; /* Allows links to wrap */
+  justify-content: center;
 }
 
 .footer-links a {
   color: #aaa;
-  font-size: 0.9em;
+  font-size: 0.85rem;
   transition: color 0.3s ease;
+  padding: 5px; /* Larger touch target */
 }
 
 .footer-links a:hover {
   color: #F39C12;
 }
 
-/* Media Queries */
-@media screen and (max-width: 992px) {
-  .intro h1 {
-    font-size: 3em;
+/* Mobile menu styles */
+@media screen and (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
   }
   
-  .intro p {
-    font-size: 1.2em;
+  nav ul {
+    flex-direction: column;
+    background-color: #1A4B84;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  nav ul.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  nav li {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+  
+  nav a {
+    display: block;
+    padding: 10px 0;
+    font-size: 1.1rem;
+  }
+}
+
+/* Enhanced responsive design for various screen sizes */
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  section {
+    padding: 60px 0;
   }
   
   .about-content {
@@ -655,73 +750,15 @@ footer p {
   .about-image {
     margin-bottom: 30px;
   }
-  
-  .project-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
 }
 
 @media screen and (max-width: 768px) {
   header .container {
-    flex-direction: column;
-  }
-  
-  .logo {
-    margin-bottom: 15px;
-  }
-  
-  nav ul {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  nav li {
-    margin: 0 10px;
+    padding: 0 15px;
   }
   
   .intro h1 {
-    font-size: 2.5em;
-  }
-  
-  .cta-buttons {
-    flex-direction: column;
-  }
-  
-  .primary-btn, .secondary-btn {
-    width: 100%;
-  }
-  
-  .contact-content {
-    flex-direction: column;
-  }
-  
-  .contact-info {
-    margin-bottom: 30px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  section {
-    padding: 60px 0;
-  }
-  
-  .intro h1 {
-    font-size: 2em;
-  }
-  
-  .intro p {
-    font-size: 1em;
-  }
-  
-  .about-heading, 
-  #projects h2, 
-  #contact h2 {
-    font-size: 2em;
-  }
-  
-  .skill img {
-    width: 40px;
-    height: 40px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
   }
   
   .profile-image {
@@ -729,8 +766,87 @@ footer p {
     height: 250px;
   }
   
-  .social-media {
-    justify-content: center;
+  .project-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  
+  .contact-content {
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  section {
+    padding: 50px 0;
+  }
+  
+  #home {
+    padding-top: 80px;
+  }
+  
+  .intro h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+  
+  .intro p {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+  }
+  
+  .filter-buttons button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .project {
+    height: 220px;
+  }
+  
+  .project-grid {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .contact-form form {
+    padding: 15px;
+  }
+  
+  .profile-image {
+    width: 180px;
+    height: 180px;
+    border-width: 3px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .intro h1 {
+    font-size: 1.5rem;
+  }
+  
+  .primary-btn, .secondary-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .contact-detail {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .contact-detail i {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .skill img {
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -773,7 +889,7 @@ footer p {
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -793,6 +909,7 @@ footer p {
   position: absolute;
   inset: 0;
   overflow: hidden;
+  z-index: 0;
 }
 
 .particle {
@@ -820,4 +937,21 @@ footer p {
     opacity: 0.4;
   }
 }
+
+/* Prevent content from being hidden under fixed header */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Add for better touch experience on mobile */
+@media (hover: none) {
+  .primary-btn:active, 
+  .secondary-btn:active,
+  .view-project:active,
+  .download-button:active,
+  .submit-button:active {
+    transform: scale(0.95);
+  }
+}
+
 
