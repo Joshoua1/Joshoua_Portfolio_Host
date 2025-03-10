@@ -26,6 +26,11 @@ import numpy from '../Assets/Images/logo.png';
 import tensorflow from '../Assets/Images/tensorflow.png';
 import sklearn from '../Assets/Images/Scikit_Learn.png';
 import Fabric from '../Assets/Images/Microsoft fabric.png';
+import Tailwind from '../Assets/Images/tailwindcss.png';  
+import Apache from '../Assets/Images/APACHE.png';
+import Django from '../Assets/Images/Django.jpg';
+import TypeScript from '../Assets/Images/typescript.png';
+import BootStrap from '../Assets/Images/bootstrap.png';
 // Import profile image
 import profileImage from '../Assets/Images/about.jpg';
 // ... other imports remain the same
@@ -50,7 +55,12 @@ const skillCategories = [
       { name: 'CSS', icon: cssIcon },
       { name: 'React', icon: reactIcon },
       { name: 'Angular', icon: angular },
-      { name: 'Node', icon: node },
+      { name: 'Node JS', icon: node },
+      { name: 'Tailwind', icon: Tailwind },
+      { name: 'Apache', icon: Apache },
+      {name: 'Django', icon: Django},
+      {name: 'TypeScript', icon: TypeScript},
+      {name: 'Bootstrap', icon: BootStrap} ,
     ]
   },
   {
