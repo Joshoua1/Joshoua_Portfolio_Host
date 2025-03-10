@@ -93,11 +93,15 @@ const Contact = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
       style={{
-        padding: '120px 0',
+        padding: '80px 20px', // Reduced top/bottom padding, added horizontal padding
         background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
         color: '#ffffff',
         overflow: 'hidden',
-        position: 'relative'
+        position: 'relative',
+        minHeight: '100vh', // Ensure minimum height for better mobile experience
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
       }}
     >
       {/* Animated background elements */}
@@ -146,22 +150,33 @@ const Contact = () => {
         }}
       />
 
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container" style={{ 
+        position: 'relative', 
+        zIndex: 1,
+        width: '100%',
+        maxWidth: '1200px',
+        margin: '0 auto' 
+      }}>
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          style={{ textAlign: 'center', marginBottom: '80px' }}
+          style={{ 
+            textAlign: 'center', 
+            marginBottom: '50px', // Reduced spacing for mobile
+            padding: '0 15px' // Added horizontal padding for smaller screens
+          }}
         >
           <motion.h2
             style={{
-              fontSize: '3rem',
+              fontSize: 'clamp(2rem, 5vw, 3rem)', // Responsive font size
               fontWeight: 800,
               background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               marginBottom: '25px',
-              letterSpacing: '1px'
+              letterSpacing: '1px',
+              wordBreak: 'break-word' // Prevent overflow on very small screens
             }}
           >
             Get in Touch
@@ -183,10 +198,11 @@ const Contact = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             style={{
               color: '#94a3b8',
-              fontSize: '1.1rem',
+              fontSize: 'clamp(0.9rem, 4vw, 1.1rem)', // Responsive font size
               maxWidth: '600px',
               margin: '25px auto 0',
-              lineHeight: 1.6
+              lineHeight: 1.6,
+              padding: '0 10px' // Add padding for text on small screens
             }}
           >
             I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
@@ -198,9 +214,8 @@ const Contact = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            maxWidth: '1200px',
-            margin: '0 auto',
-            perspective: '1000px'
+            width: '100%',
+            margin: '0 auto'
           }}
         >
           <motion.div 
@@ -212,13 +227,14 @@ const Contact = () => {
               background: 'rgba(30, 41, 59, 0.8)',
               backdropFilter: 'blur(15px)',
               borderRadius: '24px',
-              padding: '50px',
+              padding: 'clamp(25px, 5vw, 50px)', // Responsive padding
               width: '100%',
               maxWidth: '650px',
               boxShadow: '0 15px 35px rgba(0, 0, 0, 0.3)',
               border: '1px solid rgba(255, 255, 255, 0.1)',
               overflow: 'hidden',
-              position: 'relative'
+              position: 'relative',
+              margin: '0 15px' // Add margin to prevent card touching screen edges
             }}
           >
             {/* Glassmorphism highlight effect */}
@@ -243,7 +259,7 @@ const Contact = () => {
               }}
             >
               <h3 style={{
-                fontSize: '2rem',
+                fontSize: 'clamp(1.5rem, 5vw, 2rem)', // Responsive font size
                 fontWeight: 700,
                 marginBottom: '15px',
                 background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)',
@@ -254,7 +270,7 @@ const Contact = () => {
               </h3>
               <p style={{ 
                 color: '#94a3b8', 
-                fontSize: '1.1rem',
+                fontSize: 'clamp(0.9rem, 4vw, 1.1rem)', // Responsive font size
                 lineHeight: 1.6
               }}>
                 Feel free to reach out for collaborations or inquiries
@@ -273,7 +289,7 @@ const Contact = () => {
                   display: 'flex',
                   alignItems: 'center',
                   marginBottom: '20px',
-                  padding: '18px',
+                  padding: 'clamp(12px, 3vw, 18px)', // Responsive padding
                   background: 'rgba(255, 255, 255, 0.05)',
                   borderRadius: '16px',
                   cursor: 'pointer'
@@ -290,15 +306,16 @@ const Contact = () => {
                   }}
                   transition={{ duration: 0.3 }}
                   style={{
-                    width: '48px',
-                    height: '48px',
+                    width: 'clamp(40px, 8vw, 48px)', // Responsive size
+                    height: 'clamp(40px, 8vw, 48px)', // Responsive size
                     borderRadius: '50%',
                     background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    marginRight: '25px',
-                    boxShadow: '0 4px 15px rgba(79, 172, 254, 0.4)'
+                    marginRight: 'clamp(15px, 3vw, 25px)', // Responsive margin
+                    boxShadow: '0 4px 15px rgba(79, 172, 254, 0.4)',
+                    flexShrink: 0 // Prevent icon from shrinking
                   }}
                 >
                   {/* Phone Icon */}
@@ -317,7 +334,8 @@ const Contact = () => {
                 </motion.div>
                 <div style={{
                   display: 'flex',
-                  flexDirection: 'column'
+                  flexDirection: 'column',
+                  overflow: 'hidden' // Prevent text overflow
                 }}>
                   <motion.span 
                     custom={2}
@@ -325,7 +343,7 @@ const Contact = () => {
                     initial="hidden"
                     animate="visible"
                     style={{
-                      fontSize: '0.85rem',
+                      fontSize: 'clamp(0.75rem, 2.5vw, 0.85rem)', // Responsive font size
                       color: '#94a3b8',
                       marginBottom: '6px',
                       fontWeight: 500
@@ -341,10 +359,13 @@ const Contact = () => {
                     href="tel:+917389597240" 
                     style={{
                       color: hovered === 'phone' ? '#4facfe' : '#ffffff',
-                      fontSize: '1.1rem',
+                      fontSize: 'clamp(0.9rem, 3vw, 1.1rem)', // Responsive font size
                       textDecoration: 'none',
                       fontWeight: 600,
-                      transition: 'color 0.3s ease'
+                      transition: 'color 0.3s ease',
+                      whiteSpace: 'nowrap', // Keep text from wrapping
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis' // Show ellipsis if text overflows
                     }}
                   >
                     +91 7389597240
@@ -353,7 +374,12 @@ const Contact = () => {
                 <motion.div 
                   animate={{ x: hovered === 'phone' ? 10 : 0, opacity: hovered === 'phone' ? 1 : 0 }}
                   transition={{ duration: 0.3 }}
-                  style={{ marginLeft: 'auto' }}
+                  style={{ 
+                    marginLeft: 'auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9 5L16 12L9 19" stroke="#4facfe" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -372,7 +398,7 @@ const Contact = () => {
                   display: 'flex',
                   alignItems: 'center',
                   marginBottom: '20px',
-                  padding: '18px',
+                  padding: 'clamp(12px, 3vw, 18px)', // Responsive padding
                   background: 'rgba(255, 255, 255, 0.05)',
                   borderRadius: '16px',
                   cursor: 'pointer'
@@ -386,15 +412,16 @@ const Contact = () => {
                   }}
                   transition={{ duration: 0.3 }}
                   style={{
-                    width: '48px',
-                    height: '48px',
+                    width: 'clamp(40px, 8vw, 48px)', // Responsive size
+                    height: 'clamp(40px, 8vw, 48px)', // Responsive size
                     borderRadius: '50%',
                     background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    marginRight: '25px',
-                    boxShadow: '0 4px 15px rgba(79, 172, 254, 0.4)'
+                    marginRight: 'clamp(15px, 3vw, 25px)', // Responsive margin
+                    boxShadow: '0 4px 15px rgba(79, 172, 254, 0.4)',
+                    flexShrink: 0 // Prevent icon from shrinking
                   }}
                 >
                   {/* Email Icon */}
@@ -413,7 +440,8 @@ const Contact = () => {
                 </motion.div>
                 <div style={{
                   display: 'flex',
-                  flexDirection: 'column'
+                  flexDirection: 'column',
+                  overflow: 'hidden' // Prevent text overflow
                 }}>
                   <motion.span 
                     custom={5}
@@ -421,7 +449,7 @@ const Contact = () => {
                     initial="hidden"
                     animate="visible"
                     style={{
-                      fontSize: '0.85rem',
+                      fontSize: 'clamp(0.75rem, 2.5vw, 0.85rem)', // Responsive font size
                       color: '#94a3b8',
                       marginBottom: '6px',
                       fontWeight: 500
@@ -437,10 +465,13 @@ const Contact = () => {
                     href="mailto:simonjoshoua23@gmail.com" 
                     style={{
                       color: hovered === 'email' ? '#4facfe' : '#ffffff',
-                      fontSize: '1.1rem',
+                      fontSize: 'clamp(0.9rem, 3vw, 1.1rem)', // Responsive font size
                       textDecoration: 'none',
                       fontWeight: 600,
-                      transition: 'color 0.3s ease'
+                      transition: 'color 0.3s ease',
+                      whiteSpace: 'nowrap', // Keep on one line on smaller screens
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis' // Show ellipsis if text overflows
                     }}
                   >
                     simonjoshoua23@gmail.com
@@ -449,7 +480,12 @@ const Contact = () => {
                 <motion.div 
                   animate={{ x: hovered === 'email' ? 10 : 0, opacity: hovered === 'email' ? 1 : 0 }}
                   transition={{ duration: 0.3 }}
-                  style={{ marginLeft: 'auto' }}
+                  style={{ 
+                    marginLeft: 'auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9 5L16 12L9 19" stroke="#4facfe" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -464,7 +500,7 @@ const Contact = () => {
               initial="hidden"
               animate="visible"
               style={{
-                fontSize: '1.1rem',
+                fontSize: 'clamp(0.9rem, 3vw, 1.1rem)', // Responsive font size
                 fontWeight: 600,
                 color: '#cbd5e1',
                 textAlign: 'center',
@@ -483,7 +519,7 @@ const Contact = () => {
               style={{
                 display: 'flex',
                 justifyContent: 'center',
-                gap: '25px',
+                gap: 'clamp(15px, 3vw, 25px)', // Responsive gap
                 marginBottom: '40px'
               }}
             >
@@ -495,8 +531,8 @@ const Contact = () => {
                 whileHover="hover"
                 whileTap="tap"
                 style={{
-                  width: '55px',
-                  height: '55px',
+                  width: 'clamp(45px, 8vw, 55px)', // Responsive size
+                  height: 'clamp(45px, 8vw, 55px)', // Responsive size
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -509,8 +545,8 @@ const Contact = () => {
                   src={linkedinIcon} 
                   alt="LinkedIn Icon" 
                   style={{
-                    width: '26px',
-                    height: '26px',
+                    width: 'clamp(20px, 5vw, 26px)', // Responsive size
+                    height: 'clamp(20px, 5vw, 26px)', // Responsive size
                     filter: 'brightness(0) invert(1)'
                   }}
                 />
@@ -524,8 +560,8 @@ const Contact = () => {
                 whileHover="hover"
                 whileTap="tap"
                 style={{
-                  width: '55px',
-                  height: '55px',
+                  width: 'clamp(45px, 8vw, 55px)', // Responsive size
+                  height: 'clamp(45px, 8vw, 55px)', // Responsive size
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -538,8 +574,8 @@ const Contact = () => {
                   src={githubIcon} 
                   alt="GitHub Icon" 
                   style={{
-                    width: '26px',
-                    height: '26px',
+                    width: 'clamp(20px, 5vw, 26px)', // Responsive size
+                    height: 'clamp(20px, 5vw, 26px)', // Responsive size
                     filter: 'brightness(0) invert(1)'
                   }}
                 />
@@ -553,8 +589,8 @@ const Contact = () => {
                 whileHover="hover"
                 whileTap="tap"
                 style={{
-                  width: '55px',
-                  height: '55px',
+                  width: 'clamp(45px, 8vw, 55px)', // Responsive size
+                  height: 'clamp(45px, 8vw, 55px)', // Responsive size
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -567,8 +603,8 @@ const Contact = () => {
                   src={instagramIcon} 
                   alt="Instagram Icon" 
                   style={{
-                    width: '26px',
-                    height: '26px',
+                    width: 'clamp(20px, 5vw, 26px)', // Responsive size
+                    height: 'clamp(20px, 5vw, 26px)', // Responsive size
                     filter: 'brightness(0) invert(1)'
                   }}
                 />
@@ -590,12 +626,12 @@ const Contact = () => {
               <button style={{
                 display: 'flex',
                 width: '100%',
-                padding: '18px 30px',
+                padding: 'clamp(15px, 4vw, 18px) clamp(20px, 5vw, 30px)', // Responsive padding
                 background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
                 color: 'white',
                 border: 'none',
                 borderRadius: '50px',
-                fontSize: '1.1rem',
+                fontSize: 'clamp(0.9rem, 3vw, 1.1rem)', // Responsive font size
                 fontWeight: 600,
                 cursor: 'pointer',
                 boxShadow: '0 5px 20px rgba(79, 172, 254, 0.3)',
